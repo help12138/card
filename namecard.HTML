@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js实验</title>
+  <link rel="stylesheet" type="text/css" href="CSS/main02.css"/>
+  <script type="text/javascript">
+    window.onload = function(){
+      var oInput01 = document.getElementById("input01"),
+      oInput02 = document.getElementById("input02"),
+      oInput03 = document.getElementById("input03"),
+      oInput04 = document.getElementById("input04"),
+      oInput05 = document.getElementById("input05"),
+      oInput06 = document.getElementById("input06"),
+      oInput07 = document.getElementById("input07");
+      var oButt = document.getElementById("setcard");
+      var oCard = document.getElementById("card_wrap");
+      //定义按钮作用函数
+      oButt.onclick = function(){
+        var sInput1 = oInput01.value,
+        sInput2 = oInput02.value,
+        sInput3 = oInput03.value,
+        sInput4 = oInput04.value,
+        sInput5 = oInput05.value,
+        sInput6 = oInput06.value,
+        sInput7 = oInput07.value;
+
+        if (sInput1 == ""||sInput2 == ""||sInput3 == ""||sInput4 == ""||sInput5 == ""||sInput6 == ""){
+          alert("输入框不能为空");
+          return;//结束函数
+        }
+        //设置名片显示信息
+        var oStr = '<div class="p01">'+sInput1+'<em>'+sInput2+'</em>'+'</div>'+
+        '<div calss="p02">'
+        +'<p class="company">'+ sInput3 +'</p>'
+        +'<p>手机：'+ sInput4 +'</p>'
+        +'<p>email：'+ sInput5 +'</p>'
+        +'<p>地址：'+ sInput6 +'</p>'
+        +'</div>';
+        oCard.innerHTML = oStr;
+        //设置名片背景图片
+        if(sInput7==0){
+          oCard.className = "idcard01";
+        }
+        else if (sInput7==1) {
+          oCard.className = "idcard02";
+        }
+        else{
+          oCard.className = "idcard03";
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="set_con">
+      <div class="left_set">
+          <label>姓名：</label>
+          <input type="text" id="input01">
+          <label>职位：</label>
+          <input type="text" id="input02">
+          <label>公司名称：</label>
+          <input type="text" id="input03">
+          <label>手机：</label>
+          <input type="text" id="input04">
+          <label>email：</label>
+          <input type="text" id="input05">
+          <label>地址：</label>
+          <input type="text" id="input06">
+          <label>风格：</label>
+          <select  id="input07">
+              <option value="0">风格一</option>
+              <option value="1">风格二</option>
+              <option value="2">风格三</option>
+          </select>
+          <input type="button" value="设 置" class="setbtn" id="setcard">
+      </div>
+      <div class="right_show">
+          <div class="idcard01" id="card_wrap">
+              <div class="p01">张大山<em>产品经理</em></div>
+              <div class="p02">
+                  <p class="company">银河科技信息技术有限公司</p>
+                  <p>手机：1808888888</p>
+                  <p>email：dasan@126.com</p>
+                  <p>地址：中关村银河大厦B座2603</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
